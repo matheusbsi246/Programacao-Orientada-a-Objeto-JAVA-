@@ -2,7 +2,7 @@ Para os próximos exercícios crie uma classe chamada Ponto, que armazena dois
 números reais que representam coordenadas cartesianas. Crie os métodos indicados
 abaixo e faça um programa principal que chame todos esses métodos
 
--	Faça um método chamado imprime_ponto, que mostra na tela o ponto no seguinte formato (ponto.x, ponto.y)
+        -	Faça um método chamado imprime_ponto, que mostra na tela o ponto no seguinte formato (ponto.x, ponto.y)
 
 Exemplo de Saída:
 Digite o valor de x: 10

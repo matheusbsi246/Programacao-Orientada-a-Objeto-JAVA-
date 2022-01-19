@@ -8,7 +8,7 @@ public class Ponto {
         System.out.printf("(%.2f, %.2f) \n", coordenadaX, coordenadaY);
     }
 
-    public void somaPonto(Ponto p, Ponto p2) {
+public void somaPonto(Ponto p, Ponto p2) {
         Ponto p3 = new Ponto();
         p3.coordenadaX = p.coordenadaX + p2.coordenadaX;
         p3.coordenadaY = p.coordenadaY + p2.coordenadaY;
