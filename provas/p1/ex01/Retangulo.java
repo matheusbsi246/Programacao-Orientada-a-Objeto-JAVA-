@@ -1,5 +1,5 @@
 public class Retangulo {
-    private Ponto p1 = new Ponto();
+    private Ponto p1 = new Ponto();// check:  são dois pontos somente, nao 4
     private Ponto p2 = new Ponto();
     private Ponto p3 = new Ponto();
     private Ponto p4 = new Ponto();

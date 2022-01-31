@@ -2,6 +2,8 @@ public class Ponto {
     private int coordenadaY;
     private int coordenadaX;
 
+    // check: o ponto é formado por número real
+
     public void Ponto(int x, int y) {
 
         this.coordenadaX = x;

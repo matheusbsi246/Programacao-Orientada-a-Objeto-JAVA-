@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public void main(string args[]){
         int n;
-        Retangulo[] retangulos = new Retangulo[100];
+        Retangulo[] retangulos = new Retangulo[100];// check: não precisa pré-definir o tamanho
         Ponto auxiliar1 = new Ponto();
         Ponto auxiliar2 = new Ponto();
         Ponto auxiliar3 = new Ponto();
