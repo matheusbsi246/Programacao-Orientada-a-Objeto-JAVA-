@@ -3,43 +3,52 @@ public class List {
     private NodeList end = new NodeList();
     private int size;
 
+    public void createList() {
+
+        end.createNode();
+        begin.createNode();
+        size = 0;
+
+    }
     public void createList(NodeList node) {
-        if (node == null) {
-            size = 0;
-            begin = null;
-            end = null;
-            end = null;
-        } else {
-            begin = node;
-            end = node;
-        }
+
+        this.end = node;
+        this.begin = node;
+        size = 1;
 
     }
 
     public void push_front(NodeList node) {
-        NodeList aux = new NodeList();
-        aux.setNode(begin);
-        aux.setPrev(node);
-        begin.setNode(node);
-        node.setNext(aux);
-        node.setPrev(null);
-        size++;
+        if (size == 0) {
+            this.begin = node;
+            this.end = node;
+            size++;
+        } else {
+            node.setNext(begin);
+            begin.setPrev(node);
+            this.begin = node;
+                size++;
+        }
     }
 
     public void push_back(NodeList node) {
-        NodeList aux = new NodeList();
-        aux.setNode(end);
-        aux.setNext(node);
-        end.setNode(node);
-        node.setPrev(aux);
-        node.setNext(null);
-        size++;
+        if (size == 0) {
+            this.begin = node;
+            this.end = node;
+            size++;
+        } else {
+            this.end.setNext(node);
+            node.setPrev(this.end);
+            this.end = node;
+            size++;
+        }
+
     }
 
     public void insert_pos(NodeList node, int pos) {
         int i = 0;
         NodeList atual = new NodeList();
-        atual.setNode(begin);
+        atual = this.begin;
 
         while (i <= pos || i <= size) {
             atual.setNext(atual);
@@ -157,11 +166,42 @@ public class List {
     public void print() {
         NodeList atual = new NodeList();
         atual.setNode(begin);
-        for (int i = 0; i < size; i++) {
+        System.out.println("" + atual.getValue());
+        for (int i = 1; i < size; i++) {
+            atual.setNode(atual.getNext());
             System.out.println("" + atual.getValue());
-            atual.setNext(atual);
         }
+        System.out.println("");
 
     }
 
+    public static void main(String[] args) {
+        NodeList node = new NodeList();
+        NodeList node2 = new NodeList();
+        NodeList node3 = new NodeList();
+        NodeList node4 = new NodeList();
+        NodeList node5 = new NodeList();
+
+        List list = new List();
+
+        node.createNode(10);
+        node2.createNode(20);
+        node3.createNode(30);
+        node4.createNode(40);
+        node5.createNode(50);
+
+        list.createList();
+
+        list.push_front(node3);
+        list.print();
+        list.push_front(node2);
+        list.print();
+        list.push_front(node4);
+        list.print();
+        list.push_front(node5);
+        list.print();
+
+        System.out.println(" list Print: ");
+
+    }
 }

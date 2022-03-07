@@ -3,17 +3,10 @@ public class List {
     private NodeList end = new NodeList();
     private int size;
 
-    public void createList(NodeList node) {
-        if (node == null) {
-            size = 0;
+    public void createList() {
             begin = null;
             end = null;
-            end = null;
-        } else {
-            begin = node;
-            end = node;
-        }
-
+            size = 0;
     }
 
     public void push_front(NodeList node) {
