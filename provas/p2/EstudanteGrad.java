@@ -1,24 +1,23 @@
-public class EstudanteGrad {
-    String Matricula;
-    String Nome;
-    String CPF;
-    int CargaHorariaDisciplinas;
-    int CargaHorariaComplementar;
-    String TituloTCC;
-    String LocalEstagio;
+public class EstudanteGrad extends Estudante {
 
-    public EstudanteGrad(String cpf, String matricula, String nome) {
-        Nome = nome;
-        Matricula = matricula;
-        CPF = cpf;
+    private int CargaHorariaComplementar;
+    private String TituloTCC;
+    private String LocalEstagio;
+
+    EstudanteGrad(String cpf, String matricula, String nome) {
+
+        super(cpf, matricula, nome);
+
     }
 
-    public int getCargaHorariaDisciplinas() {
-        return CargaHorariaDisciplinas;
-    }
+    EstudanteGrad(String cpf, String matricula, String nome, int CargaHorariaDisciplinas, int CargaHorariaComplementar,
+            String TituloTCC, String LocalEstagio) {
 
-    public void setCargaHorariaDisciplinas(int cargaHorariaDisciplinas) {
-        CargaHorariaDisciplinas = cargaHorariaDisciplinas;
+        super(cpf, matricula, nome, CargaHorariaDisciplinas);
+        this.CargaHorariaComplementar = CargaHorariaComplementar;
+        this.TituloTCC = TituloTCC;
+        this.LocalEstagio = LocalEstagio;
+
     }
 
     public int getCargaHorariaComplementar() {
@@ -26,7 +25,16 @@ public class EstudanteGrad {
     }
 
     public void setCargaHorariaComplementar(int cargaHorariaComplementar) {
-        CargaHorariaComplementar = cargaHorariaComplementar;
+
+        if (cargaHorariaComplementar > 3000) {
+            throw new CargaHorariaException("Carga horaria acima do limite");
+        } else if (cargaHorariaComplementar < 0) {
+            System.out.println("entrou");
+            throw new CargaHorariaException("a carga horaria não pode ser negativa");
+        } else {
+            CargaHorariaComplementar = cargaHorariaComplementar;
+        }
+
     }
 
     public String getTituloTCC() {
@@ -45,13 +53,19 @@ public class EstudanteGrad {
         LocalEstagio = localEstagio;
     }
 
-    public void informacoesEstudanteGrad(){
-        System.out.println("Nome: " + Nome);
-        System.out.println("CPF: " + CPF);
-        System.out.println("Matricula: " + Matricula );
-        System.out.println("Carga Horária: " +  CargaHorariaDisciplinas);
-        System.out.println("Horas complementares: " +  CargaHorariaComplementar);
-        System.out.println("Local do estágio: " +  CargaHorariaComplementar);
-        System.out.println("Título do TCC: " +  TituloTCC);
+    @Override
+    public void gerarCertificado() {
+        System.out.println("Certifico que o" + getNome() + "  realiza estágio em" + getLocalEstagio());
+    }
+
+    @Override
+    public void informacoesEstudante() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("CPF: " + getCPF());
+        System.out.println("Matricula: " + getMatricula());
+        System.out.println("Carga Horária: " + getCargaHorariaDisciplinas());
+        System.out.println("Horas complementares: " + CargaHorariaComplementar);
+        System.out.println("Local do estágio: " + CargaHorariaComplementar);
+        System.out.println("Título do TCC: " + TituloTCC);
     }
 }

@@ -3,16 +3,18 @@ public class List {
     private NodeList end = new NodeList();
     private int size;
 
-    public void createList() {
+   public List() {
 
-        end.createNode();
-        begin.createNode();
-        size = 0;
+        end = new NodeList();
+        begin = new NodeList();
+        this.size = 0;
 
     }
-    
-    public void createList(NodeList node) {
 
+    public List (NodeList node) {
+        if(node.getNext() == null){
+            throw new NullPointerException("Insita um nó valido");
+        }
         this.end = node;
         this.begin = node;
         size = 1;
@@ -28,7 +30,7 @@ public class List {
             node.setNext(begin);
             begin.setPrev(node);
             this.begin = node;
-                size++;
+            size++;
         }
     }
 
@@ -178,29 +180,18 @@ public class List {
 
     public static void main(String[] args) {
         NodeList node = new NodeList();
-        NodeList node2 = new NodeList();
-        NodeList node3 = new NodeList();
-        NodeList node4 = new NodeList();
-        NodeList node5 = new NodeList();
+        NodeList node2 = new NodeList(20);
+        NodeList node3 = new NodeList(30);
+        NodeList node4 = new NodeList(40);
+        NodeList node5 = new NodeList(50);
 
-        List list = new List();
+        try {
+            List list1 = new List(node);
+        }
+        catch(NullPointerException e){
+            System.out.println(e.getMessage());
+        }
 
-        node.createNode(10);
-        node2.createNode(20);
-        node3.createNode(30);
-        node4.createNode(40);
-        node5.createNode(50);
-
-        list.createList();
-
-        list.push_front(node3);
-        list.print();
-        list.push_front(node2);
-        list.print();
-        list.push_front(node4);
-        list.print();
-        list.push_front(node5);
-        list.print();
 
         System.out.println(" list Print: ");
 

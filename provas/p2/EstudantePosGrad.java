@@ -1,23 +1,21 @@
-public class EstudantePosGrad {
-    String CPF;
-    String Nome;
-    String Matricula;
-    int CargaHorariaDisciplinas;
+public class EstudantePosGrad extends Estudante {
+
     String Nivel; // doutorado ou mestrado
     String TemaProjetoPesquisa;
 
-    public EstudantePosGrad(String CPF, String matricula, String nome) {
-        this.CPF = CPF;
-        Nome = nome;
-        Matricula = matricula;
+    EstudantePosGrad(String cpf, String matricula, String nome) {
+
+        super(cpf, matricula, nome);
+
     }
 
-    public int getCargaHorariaDisciplinas() {
-        return CargaHorariaDisciplinas;
-    }
+    EstudantePosGrad(String cpf, String matricula, String nome, String Nivel, int CargaHorariaDisciplinas,
+            String TemaProjetoPesquisa) {
 
-    public void setCargaHorariaDisciplinas(int cargaHorariaDisciplinas) {
-        CargaHorariaDisciplinas = cargaHorariaDisciplinas;
+        super(cpf, matricula, nome, CargaHorariaDisciplinas);
+        this.Nivel = Nivel;
+        this.TemaProjetoPesquisa = TemaProjetoPesquisa;
+
     }
 
     public String getNivel() {
@@ -25,7 +23,7 @@ public class EstudantePosGrad {
     }
 
     public void setNivel(String nivel) {
-        Nivel = nivel;
+        this.Nivel = nivel;
     }
 
     public String getTemaProjetoPesquisa() {
@@ -33,16 +31,21 @@ public class EstudantePosGrad {
     }
 
     public void setTemaProjetoPesquisa(String temaProjetoPesquisa) {
-        TemaProjetoPesquisa = temaProjetoPesquisa;
+        this.TemaProjetoPesquisa = temaProjetoPesquisa;
     }
 
-    public void informacoesEstudantePos(){
-        System.out.println("Nome: " + Nome);
-        System.out.println("CPF: " + CPF);
-        System.out.println("Matricula: " + Matricula );
-        System.out.println("Carga Horária: " +  CargaHorariaDisciplinas);
-        System.out.println("Nível: " +  Nivel);
-        System.out.println("Tema de pesquisa: " +  TemaProjetoPesquisa);
+    @Override 
+    public void gerarCertificado(){
+     System.out.println("Certifico que o" + getNome() + " participa do projeto" + getTemaProjetoPesquisa());   
+    }
+
+    @Override
+    public void informacoesEstudante() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("CPF: " + getCPF());
+        System.out.println("Matricula: " + getMatricula());
+        System.out.println("Carga Horária: " + getCargaHorariaDisciplinas());
+        System.out.println("Nível: " + Nivel);
+        System.out.println("Tema de pesquisa: " + TemaProjetoPesquisa);
     }
 }
-
