@@ -27,7 +27,7 @@ public class Universidade {
             System.out.println(e.getMessage());
         }
         try{
-            estudante.setCargaHorariaComplementar(-2);
+            estudante.setCargaHorariaComplementar(3001);
         }
         catch(CargaHorariaException e){
             System.out.println(e.getMessage());
