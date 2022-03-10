@@ -1,4 +1,4 @@
-claa ContaCorrente{
+class ContaCorrente{
 
     private float saldo;
     private int estado; //1 = conta ativa, 2= conta inativa
@@ -34,14 +34,14 @@ claa ContaCorrente{
 
     public float getSaldo (int pwd){
         if(senha == pwd)
-            return saldo
+            return saldo;
         else
             return -1;
         }
 
         public void creditaValor(int pwd, float val){
         if (senha == pwd)
-            saldo += val
+            saldo += val;
         }
 
         protected int getEstado(int pwd){

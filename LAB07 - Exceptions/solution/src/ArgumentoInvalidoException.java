@@ -1,4 +1,4 @@
-public class ArgumentoInvalidoException extends RuntimeException {
+public class ArgumentoInvalidoException extends Exception {
     ArgumentoInvalidoException(String message){
         super(message);
     }

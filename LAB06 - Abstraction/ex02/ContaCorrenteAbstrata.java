@@ -37,18 +37,16 @@ public boolean debitaValor (float val, int pwd){
         return (true);
         }
 
-public void debitaValor ( float val );
-
 public float getSaldo (int pwd){
         if(senha == pwd)
-        return saldo
+        return saldo;
         else
         return -1;
         }
 
 public void creditaValor(int pwd, float val){
         if (senha == pwd)
-        saldo += val
+        saldo += val;
         }
 
 protected int getEstado(int pwd){

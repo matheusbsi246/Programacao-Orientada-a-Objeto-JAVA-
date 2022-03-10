@@ -12,9 +12,6 @@ public class List {
     }
 
     public List (NodeList node) {
-        if(node.getNext() == null){
-            throw new NullPointerException("Insita um nó valido");
-        }
         this.end = node;
         this.begin = node;
         size = 1;
