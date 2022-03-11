@@ -1,0 +1,17 @@
+public abstract class Item {
+
+    private String titulo;
+    private String tempoDuracao;
+    private String comentarios;
+
+    Item(String titulo, String tempoDuracao, String comentarios){
+        this.titulo = titulo;
+        this.tempoDuracao = tempoDuracao;
+        this.comentarios = comentarios;
+    }
+
+    public void print(){
+        system.out.println("Titulo: " + titulo + "\ntempoDuracao: " + tempoDuracao + "\ncomentarios: " + comentarios
+    }
+
+}
